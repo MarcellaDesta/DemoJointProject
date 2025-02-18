@@ -30,9 +30,25 @@ new class extends Component
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+
+                    {{-- melakukan pengecekan autentifikasi admin-user --}}
+                    @if (Auth::user()->role == 'admin')
+                    
+                        <x-nav-link :href="route('admin-dashboard')" :active="request()->routeIs('admin-dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
-                    </x-nav-link>
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('admin-projects')" :active="request()->routeIs('admin-projects')" wire:navigate>
+                        {{ __('Project') }}
+                        </x-nav-link>
+
+                    @else
+                        {{-- menu navigasi user --}}
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
+                        {{ __('Dashboard') }}
+                        </x-nav-link>
+
+                    @endif
                 </div>
             </div>
 

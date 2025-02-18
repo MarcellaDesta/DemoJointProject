@@ -24,6 +24,12 @@ class User extends Authenticatable
         'role'
     ];
 
+    // create function for relationship to project class
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
