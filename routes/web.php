@@ -23,6 +23,7 @@ Route::view('dashboard', 'dashboard')
 Route::middleware(['auth', 'verified'])->group(function(){
     // ROUTE FOR ADMINN....
     Route::view('admin-dashboard', 'admin-dashboard', ['pageTitle' => 'Dashboard'])->name('admin-dashboard');
+    Route::view('admin-projects', 'admin-projects', ['pageTitle' => 'Dashboard'])->name('admin-projects');
 
     // ROUTE FOR USERS...
 });
