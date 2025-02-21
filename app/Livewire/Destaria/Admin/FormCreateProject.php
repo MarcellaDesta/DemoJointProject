@@ -6,17 +6,17 @@ use Livewire\Component;
 
 class FormCreateProject extends Component
 {
-    public $titleComponent = "HALAMAN FORM CREATE PROJECT COMPONENT";
-    public $content ="";
+    public $name="";
+    public $price="";
 
     public function render()
     {
         return view('livewire.destaria.admin.form-create-project');
     }
 
-    public function save()
+    public function sendDataProject()
     {
-       dd($this->content);
+        dd($this->name, $this->price);
     }
 }
 
