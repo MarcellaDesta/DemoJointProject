@@ -12,7 +12,9 @@ class Project extends Model
     protected $fillable = [
         'name',
         'user_id',
-        'status'
+        'status',
+        'category',
+        'description'
     ];
 
     // function relasi dari model project dengan model user

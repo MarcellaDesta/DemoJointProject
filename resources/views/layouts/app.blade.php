@@ -33,6 +33,6 @@
                 {{ $slot }}
             </main>
         </div>
-        @livewireScripts
+        @livewireScripts  
     </body>
 </html>
