@@ -34,7 +34,7 @@
                             {{ $project->status }}
                               {{-- <span
                     class="text-xs font-semibold px-2.5 py-0.5 rounded text-white
-                    @if ($project->status == '') bg-red-500
+                    @if ($project->status == 'drafted') bg-red-500
                     @elseif ($project->status == 'archived') bg-yellow-500
                     @elseif ($project->status == 'pending') bg-green-500
                     @elseif ($project->status == 'published') bg-blue-500
