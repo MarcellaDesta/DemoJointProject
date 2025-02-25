@@ -13,6 +13,8 @@
                     {{-- {{ __("Halaman Admin Project") }} --}}
                     {{-- {{ Auth::user()->role }} --}}
                     <livewire:destaria.admin.form-create-project/>
+                    <livewire:destaria.admin.list-project/>
+
                 </div>
             </div>
         </div>

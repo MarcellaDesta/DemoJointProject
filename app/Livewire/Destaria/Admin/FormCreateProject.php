@@ -42,9 +42,9 @@ class FormCreateProject extends Component
             'description' => $this->description
         ]);
 
-        dd('data berhasil disimpan');
-
         $this->resetForm();
+
+        $this->dispatch('project-created');
     }
 
     public function resetForm(){
