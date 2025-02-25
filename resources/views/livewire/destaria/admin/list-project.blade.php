@@ -32,6 +32,15 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $project->status }}
+                              {{-- <span
+                    class="text-xs font-semibold px-2.5 py-0.5 rounded text-white
+                    @if ($project->status == '') bg-red-500
+                    @elseif ($project->status == 'archived') bg-yellow-500
+                    @elseif ($project->status == 'pending') bg-green-500
+                    @elseif ($project->status == 'published') bg-blue-500
+                    @endif">
+                    {{ $project->category }}
+                </span> --}}
                         </td>
                         <td class="px-6 py-4">
                             {{ $project->category }}
