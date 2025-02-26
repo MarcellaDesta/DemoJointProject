@@ -21,8 +21,16 @@ class ListProject extends Component
     }
 
     #[On('project-created')]
+    #[On('project-deleted')]
     public function getListProject()
     {
         $this->projects = Project::with('user')->get();
+    }
+
+    public function deleteProject($projectId)
+    {
+        $project = Project::find($projectId);
+        $project->delete();
+        $this->dispatch('project-deleted')->self();
     }
 }
