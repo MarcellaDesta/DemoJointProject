@@ -30,6 +30,13 @@ class User extends Authenticatable
         return $this->hasMany(Project::class);
     }
 
+    public function teams()
+    {
+        return $this->hasMany(Teams::class);
+    }
+
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

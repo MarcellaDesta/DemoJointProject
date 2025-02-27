@@ -8,8 +8,7 @@
             }
             }">
 
-
-        <div class="mt-2 relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="gap-1 mt-2 relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -31,23 +30,23 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @forelse ($projects as $project)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">
                             {{ $project->name }}
                         </td>
+
                         <td class ="px-6 py-4">
                                 @if ($project->status == 'DRAFTED')
-                                <span class="text-blue-500"> {{ $project->status }}</span>
+                                <span class="text-green-500"> {{ $project->status }}</span>
                                 @elseif ($project->status == 'ARCHIVED')
                                 <span class="text-red-500"> {{ $project->status }}</span>
                                 @elseif ($project->status == 'PENDING')
                                 <span class="text-yellow-500"> {{ $project->status }}</span>
                                 @elseif ($project->status == 'PUBLISHED')
-                                <span class="text-purple-500"> {{ $project->status }}</span>
+                                <span class="text-purple-300"> {{ $project->status }}</span>
                                 @endif
-                                </span>
+                        </span>
                         </td>
                         <td class="px-6 py-4">
                             {{ $project->category }}
@@ -63,11 +62,8 @@
                         </td>
                     </tr>
                     @empty
-
                     @endforelse
-
                 </tbody>
             </table>
         </div>
-
 </div>

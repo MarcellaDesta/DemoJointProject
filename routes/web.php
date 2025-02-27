@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
+
+Route::post('submission',[ProjectController::class, 'sendSubmission'])->name('submission');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

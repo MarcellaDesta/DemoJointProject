@@ -5,26 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Teams extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'name',
         'user_id',
-        'status',
-        'category',
-        'description'
+        'project_id',
+        'status'
     ];
 
-    // function relasi dari model project dengan model user
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function teams()
+    public function project()
     {
-        return $this->hasMany(Teams::class);
+        return $this->belongsTo(Project::class);
     }
+
+
+
 }

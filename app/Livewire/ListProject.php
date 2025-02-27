@@ -7,15 +7,28 @@ use Livewire\Component;
 class ListProject extends Component
 {
     public $listProject =[];
-    public $onRerfresh = false;
+
 
     public function render()
     {
         return view('livewire.list-project');
     }
 
+    public function mount()
+    {
+        $this->refeshListProject();
+    }
+
     public function refeshListProject()
     {
-        dd('melakukan refresh component');
+
+        $this->listProject= Project::where('status', 'PUBLISHED')->get();
+    }
+
+    public function sendSubmission($id)
+    {
+         $project = Project::where($id);
+         $this->project;
+         dd($this->project);
     }
 }

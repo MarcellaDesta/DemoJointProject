@@ -33,4 +33,5 @@ class ListProject extends Component
         $project->delete();
         $this->dispatch('project-deleted')->self();
     }
+
 }
