@@ -16,10 +16,10 @@ class Dashboard extends Component
        // Cek kondisi bila ada $requestProjectId, ambil data project melalui model project dimana id project adalah $requestProjectId ke dalam $project
       if($requestProjectId) {
         // single project
-        $this->project = Project::with(['user'])->where('id', $requestProjectId)->first();
+        $this->project = Project::with(['user','teams'])->where('id', $requestProjectId)->first();
       } else {
         // listproject
-        $this->listProject = Project::with(['user'])->get();
+        $this->listProject = Project::with(['user','teams'])->get();
       }
 
 
@@ -28,5 +28,10 @@ class Dashboard extends Component
     public function render()
     {
         return view('livewire.user.dashboard');
+    }
+
+    public function sendSubmission($id)
+    {
+        dd($id);
     }
 }
