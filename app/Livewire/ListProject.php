@@ -22,13 +22,17 @@ class ListProject extends Component
     public function refeshListProject()
     {
 
-        $this->listProject= Project::where('status', 'PUBLISHED')->get();
+        $this->listProject= Project::where('status','PUBLISHED')->get();
     }
 
-    public function sendSubmission($id)
+    public function sendSubmission($projectId)
     {
-         $project = Project::where($id);
-         $this->project;
-         dd($this->project);
+
+          // mengirimkan parameter ProjectId melalui session
+           session()->put('selected_projectId', $projectId);
+
+          // dan mengarahkan ke halaman submission
+          $this->redirectIntended(route('login'), navigate: true);
+
     }
 }

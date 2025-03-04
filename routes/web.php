@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
-
 Route::post('submission',[ProjectController::class, 'sendSubmission'])->name('submission');
-
-Route::view('dashboard', 'dashboard')
+Route::view('dashboard', 'dashboard', ['pageTitle' => 'Dashboard'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 

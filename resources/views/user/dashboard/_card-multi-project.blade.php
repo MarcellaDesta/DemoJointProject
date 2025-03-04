@@ -1,0 +1,1 @@
+{{ __('CARD MULTI PROJECT') }}

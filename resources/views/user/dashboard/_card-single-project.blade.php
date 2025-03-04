@@ -1,0 +1,1 @@
+{{ __('CARD SINGLE PROJECT') }}
