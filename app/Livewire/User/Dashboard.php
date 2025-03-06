@@ -32,6 +32,16 @@ class Dashboard extends Component
 
     public function sendSubmission($id)
     {
-        dd($id);
+
+        Teams::create([
+            'user_id' =>auth()->id(),
+            'project_id' => $id
+        ]);
+        return redirect()->route('dashboard');
+    }
+
+    public function backToSubmission()
+    {
+        return redirect()->route('dashboard');
     }
 }
