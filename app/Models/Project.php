@@ -27,4 +27,9 @@ class Project extends Model
     {
         return $this->hasMany(Teams::class);
     }
+
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
+    }
 }

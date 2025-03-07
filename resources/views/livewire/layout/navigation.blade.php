@@ -33,7 +33,7 @@ new class extends Component
 
                     {{-- melakukan pengecekan autentifikasi admin-user --}}
                     @if (Auth::user()->role == 'admin')
-                    
+
                         <x-nav-link :href="route('admin-dashboard')" :active="request()->routeIs('admin-dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                         </x-nav-link>
@@ -41,6 +41,10 @@ new class extends Component
                         <x-nav-link :href="route('admin-projects')" :active="request()->routeIs('admin-projects')" wire:navigate>
                         {{ __('Project') }}
                         </x-nav-link>
+
+                        <x-nav-link :href="route('admin-todo')" :active="request()->routeIs('admin-todo')" wire:navigate>
+                            {{ __('Todo') }}
+                         </x-nav-link>
 
                     @else
                         {{-- menu navigasi user --}}

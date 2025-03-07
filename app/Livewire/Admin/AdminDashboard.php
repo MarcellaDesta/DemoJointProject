@@ -24,8 +24,13 @@ class AdminDashboard extends Component
     public function getListSubmission()
     {
         // didalam function tersebut ambil semua data project yang isinya ada team yang ingin join ke project
-        $projects = Project::with(['teams'])->get();
-        dd($projects);
+        $projects = Project::with('teams')
+        ->whereHas('teams',function ($query) {
+            $query->where('status', 'submission');
+        })
+        ->get();
+
+        // dd($projects);
     }
 
 }

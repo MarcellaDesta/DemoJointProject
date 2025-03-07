@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TodoListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
     // ROUTE FOR ADMINN....
     Route::view('admin-dashboard', 'admin-dashboard', ['pageTitle' => 'Dashboard'])->name('admin-dashboard');
     Route::view('admin-projects', 'admin-projects', ['pageTitle' => 'Dashboard'])->name('admin-projects');
+    Route::get('admin-todo', [TodoListController::class, 'index'])->name('admin-todo');
 
     // ROUTE FOR USERS...
 });
