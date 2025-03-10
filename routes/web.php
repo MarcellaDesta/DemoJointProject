@@ -27,6 +27,9 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::view('admin-dashboard', 'admin-dashboard', ['pageTitle' => 'Dashboard'])->name('admin-dashboard');
     Route::view('admin-projects', 'admin-projects', ['pageTitle' => 'Dashboard'])->name('admin-projects');
     Route::get('admin-todo', [TodoListController::class, 'index'])->name('admin-todo');
+    Route::get('admin-todocreate', [TodoListController::class, 'create'])->name('admin-todocreate');
+    Route::post('admin-todostore', [TodoListController::class, 'store'])->name('admin-todostore');
+
 
     // ROUTE FOR USERS...
 });

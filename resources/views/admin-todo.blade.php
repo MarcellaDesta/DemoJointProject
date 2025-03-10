@@ -1,32 +1,55 @@
 <x-app-layout>
-    @section('title', "Daftar Data | " . config('app.name'))
+    <title> {{ $pageTitle }} | {{ config('app.name') }} </title>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h2 class="text-xl font-semibold mb-4">Daftar Data</h2>
 
-                    <table class="w-full border-collapse border border-gray-300 dark:border-gray-700">
-                        <thead>
-                            <tr class="bg-gray-200 dark:bg-gray-700">
-                                <th class="border border-gray-300 dark:border-gray-600 px-4 py-2">Name</th>
-                                <th class="border border-gray-300 dark:border-gray-600 px-4 py-2">Status</th>
-                                <th class="border border-gray-300 dark:border-gray-600 px-4 py-2">Project ID</th>
-                                <th class="border border-gray-300 dark:border-gray-600 px-4 py-2">Category</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data as $item)
-                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">{{ $item->name }}</td>
-                                    <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">{{ $item->status }}</td>
-                                    <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">{{ $item->project_id }}</td>
-                                    <td class="border border-gray-300 dark:border-gray-600 px-4 py-2">{{ $item->category }}</td>
+                    <!-- Tombol Tambah Todo -->
+                    <a href="{{ route('admin-todocreate') }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded mb-4">
+                        Tambah Todo
+                    </a>
+                    @if(session('success'))
+                    <div class="bg-yellow-500 text-white p-3 rounded mt-2">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                    <!-- Tabel Todo List -->
+                    <div class="mt-2 relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">Name</th>
+                                    <th scope="col" class="px-6 py-3">Status</th>
+                                    <th scope="col" class="px-6 py-3">Project</th>
+                                    <th scope="col" class="px-6 py-3">Category</th>
+                                    <th scope="col" class="px-6 py-3">Action</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @forelse ($todos as $todo)
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $todo->name }}
+                                        </td>
+                                        <td scope="row" class="px-6 py-4">
+                                            {{ $todo->status }}
+                                        </td>
+                                        <td scope="row" class="px-6 py-4">
+                                            {{ $todo->project->name}}
+                                        </td>
+                                        <td scope="row" class="px-6 py-4">
+                                            {{ $todo->category }}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="px-4 py-2 text-center">Tidak ada data</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
 
                 </div>
             </div>
