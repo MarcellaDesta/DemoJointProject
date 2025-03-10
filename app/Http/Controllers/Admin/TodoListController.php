@@ -36,11 +36,11 @@ class TodoListController extends Controller
                 'status' => 'required',
                 'category' => 'required',
                 'project_id' => 'required', // Pastikan project_id valid
-            ],[
-                'name.required' => 'Nama Wajib Diisi....',
-                'status.required' => 'Status wajib disii....',
-                'category.required' => 'Category wajib diisi....',
-                'project_id.required' => 'Project wajib diisi....'
+            // ],[
+            //     'name.required' => 'Nama Wajib Diisi....',
+            //     'status.required' => 'Status wajib disii....',
+            //     'category.required' => 'Category wajib diisi....',
+            //     'project_id.required' => 'Project wajib diisi....'
             ]);
 
             // dd($validated);
@@ -56,6 +56,15 @@ class TodoListController extends Controller
             // Redirect setelah berhasil menyimpan
             return redirect()->route('admin-todo')->with('success', 'Data Berhasil Ditambahkan!');
         }
-    }
+
+        public function destroy($id)
+        {
+            $todo = Todo::find($id);
+            $todo -> delete();
+            return redirect()->route('admin-todo')->with('success', 'Data Berhasil Dihapus!');
+        }
+
+        }
+
 
 

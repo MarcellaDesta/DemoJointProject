@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::get('admin-todo', [TodoListController::class, 'index'])->name('admin-todo');
     Route::get('admin-todocreate', [TodoListController::class, 'create'])->name('admin-todocreate');
     Route::post('admin-todostore', [TodoListController::class, 'store'])->name('admin-todostore');
+    Route::delete('admin-tododestroy/{id}', [TodoListController::class, 'destroy'])->name('admin-tododestroy');
 
 
     // ROUTE FOR USERS...
